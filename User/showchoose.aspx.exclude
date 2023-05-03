@@ -1,0 +1,89 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="showchoose.aspx.cs" Inherits="User_moviepreview" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head data-cast-api-enabled="true">
+		<title>Sdarot.TV | סדרות - צפייה ישירה והורדה עם תרגום מובנה</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="robots" content="index, follow">
+		<meta name="keywords" content="סדרות, סדרות ישראליות, סדרות לצפייה ישירה, צפייה ישירה, סדרות לצפייה ישירה עם תרגום מובנה, סדרות להורדה">
+		<meta name="description" content="the best tv services in the world, infinty tv offers infinity shows to stream 24/7">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="verification" content="2d41dbd907d97cd4e47193d9e58ad9">
+		<link href="//static.sdarot.tw/images/favicon.ico" rel="icon" type="image/x-icon">
+		<link href="//static.sdarot.tw/images/apple-touch-icon.png" rel="apple-touch-icon">
+		<link href="//static.sdarot.tw/css/openSansHebrew.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="//static.sdarot.tw/css/fa5.15.3.min.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="//static.sdarot.tw/css/bootstrap.min.css?v3.3.7" rel="stylesheet" type="text/css" media="screen">
+		<link href="//static.sdarot.tw/css/bootstrap-rtl.min.css?v3.3.4" rel="stylesheet" type="text/css" media="screen">
+		<link href="//static.sdarot.tw/css/bootstrap-select.min.css?v1.12.3" rel="stylesheet" type="text/css" media="screen">
+		<link href="//static.sdarot.tw/css/v122.css" rel="stylesheet" type="text/css" media="screen">
+
+		
+		</script>
+	</head>
+    <header>
+        <link href="../css/sdarot.css" rel="stylesheet" />
+			<div id="joinUs" class="hidden-xs">
+				<span class="pull-right">הצטרפו אלינו גם ב:</span>
+				<ul class="list-inline pull-right">
+					<li><a target="_blank" href="https://t.me/sdarot_tw_23"><i class="fab fa-telegram-plane"></i><span>Telegram</span></a></li>
+					<li><a target="_blank" href="https://twitter.com/sdarot_tv"><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
+					<li><a target="_blank" href="https://t.me/sdarot_tw_23"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+					<li><a target="_blank" href="https://t.me/sdarot_tw_23"><i class="fab fa-discord"></i><span>Discord</span></a></li>
+				</ul>
+				<ul class="list-inline pull-left">
+																			</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div id="slide">
+				<nav class="navbar navbar-default">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button btn-lg" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".colMenu" aria-expanded="false">
+								<span class="fa fa-bars" aria-hidden="true"></span>
+							</button>
+                            
+							<a class="navbar-brand" href="/"><img src="../images/logo.png" / style="height:90px; width:100px;"> </a>
+						</div>
+						<div class="collapse navbar-collapse colMenu">
+							<ul class="nav navbar-nav">
+								<li><a href="/index">ראשי</a></li>
+								<li class="active"><a href="/series">רשימת סדרות</a></li>
+								<li><a href="/tracking">מעקב סדרות</a></li>
+								<li><a href="/favorite">הסדרות שלי</a></li>
+								<li><a href="/donate">רכישת מנוי</a></li>
+								<li><a href="/about">אודות</a></li>
+								<li><a href="/staff">צוות האתר</a></li>
+								<li><a href="/support">צור קשר</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<div id="slideText" class="container text-center colMenu collapse in">
+					<h1>ברוכים הבאים לאתר סדרות</h1>
+					<h2>אתר הסדרות הגדול בישראל לצפייה ישירה</h2>
+										<p>
+						<button class="btn btn-lg btn-green collapsed nontrans" data-toggle="collapse" data-target="#loginForm" aria-expanded="false">התחברות לאתר</button>
+						<a href="/signup" class="btn btn-lg btn-green nontrans">הרשמה לאתר</a>
+					</p>
+					<div class="collapse headbox" id="loginForm">
+						<form method="post" name="login" action="/login">
+							<input type="hidden" name="location" value="/series">
+							
+				</div>
+					
+
+				</div>
+</header>
+    <body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:DropDownList ID="ddlgenre" runat="server" DataSourceID="SqlDataSource2" DataTextField="generename" DataValueField="genereId" OnSelectedIndexChanged="ddlgenre_SelectedIndexChanged"></asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString4 %>" ProviderName="<%$ ConnectionStrings:ConnectionString4.ProviderName %>" SelectCommand="SELECT [generename], [genereId] FROM [tblgen]"></asp:SqlDataSource>
+    <asp:ListBox ID="listshow" runat="server" style="z-index: 1; left: 124px; top: 51px; position: absolute" OnSelectedIndexChanged="listshow_SelectedIndexChanged"></asp:ListBox>
+    </div>
+    </form>
+</body>
+</html>

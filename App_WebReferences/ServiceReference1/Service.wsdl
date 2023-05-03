@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="chkCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="crd" type="tns:Credit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Credit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cvv" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="chkCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chkCardResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chk" type="tns:Credit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chkInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCurrencyRates">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllCurrencyRatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCurrencyRatesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ilbank" type="tns:israeliBank" />
+            <s:element minOccurs="0" maxOccurs="1" name="totalShekel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="israeliBank">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyRate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Chgdate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getTotalResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updRate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="show" type="tns:israeliBank" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updRateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertCurrencyRate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="add" type="tns:israeliBank" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCurrencyRateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteCurrency">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="del" type="tns:israeliBank" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCurrencyResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllcoupon">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllcouponResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllcouponResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewCoupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="add" type="tns:coupon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="coupon">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MainCoupon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DiscCoupon" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertNewCouponResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="perbycoup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="add" type="tns:coupon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="perbycoupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="perbycoupResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCoupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="del" type="tns:coupon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCouponResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updCoupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updCoupon" type="tns:coupon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updCouponResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="chkCoupon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ck" type="tns:coupon" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkCouponResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chkCouponResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="chkFclub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chk" type="tns:fClub" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="fClub">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClubName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="chkFclubResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chkFclubResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewClub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="add" type="tns:fClub" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNewClubResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="del" type="tns:fClub" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMemberResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="chkCardSoapIn">
+    <wsdl:part name="parameters" element="tns:chkCard" />
+  </wsdl:message>
+  <wsdl:message name="chkCardSoapOut">
+    <wsdl:part name="parameters" element="tns:chkCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="chkInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:chkInfo" />
+  </wsdl:message>
+  <wsdl:message name="chkInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:chkInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCurrencyRatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCurrencyRates" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCurrencyRatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCurrencyRatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:getTotal" />
+  </wsdl:message>
+  <wsdl:message name="getTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:getTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="updRateSoapIn">
+    <wsdl:part name="parameters" element="tns:updRate" />
+  </wsdl:message>
+  <wsdl:message name="updRateSoapOut">
+    <wsdl:part name="parameters" element="tns:updRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCurrencyRateSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCurrencyRate" />
+  </wsdl:message>
+  <wsdl:message name="InsertCurrencyRateSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCurrencyRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCurrencySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCurrency" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCurrencySoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCurrencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllcouponSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllcoupon" />
+  </wsdl:message>
+  <wsdl:message name="GetAllcouponSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllcouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewCouponSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertNewCoupon" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewCouponSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertNewCouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="perbycoupSoapIn">
+    <wsdl:part name="parameters" element="tns:perbycoup" />
+  </wsdl:message>
+  <wsdl:message name="perbycoupSoapOut">
+    <wsdl:part name="parameters" element="tns:perbycoupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCouponSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCoupon" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCouponSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="updCouponSoapIn">
+    <wsdl:part name="parameters" element="tns:updCoupon" />
+  </wsdl:message>
+  <wsdl:message name="updCouponSoapOut">
+    <wsdl:part name="parameters" element="tns:updCouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="chkCouponSoapIn">
+    <wsdl:part name="parameters" element="tns:chkCoupon" />
+  </wsdl:message>
+  <wsdl:message name="chkCouponSoapOut">
+    <wsdl:part name="parameters" element="tns:chkCouponResponse" />
+  </wsdl:message>
+  <wsdl:message name="chkFclubSoapIn">
+    <wsdl:part name="parameters" element="tns:chkFclub" />
+  </wsdl:message>
+  <wsdl:message name="chkFclubSoapOut">
+    <wsdl:part name="parameters" element="tns:chkFclubResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewClubSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertNewClub" />
+  </wsdl:message>
+  <wsdl:message name="InsertNewClubSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertNewClubResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMember" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMemberResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="chkCard">
+      <wsdl:input message="tns:chkCardSoapIn" />
+      <wsdl:output message="tns:chkCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkInfo">
+      <wsdl:input message="tns:chkInfoSoapIn" />
+      <wsdl:output message="tns:chkInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCurrencyRates">
+      <wsdl:input message="tns:GetAllCurrencyRatesSoapIn" />
+      <wsdl:output message="tns:GetAllCurrencyRatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTotal">
+      <wsdl:input message="tns:getTotalSoapIn" />
+      <wsdl:output message="tns:getTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updRate">
+      <wsdl:input message="tns:updRateSoapIn" />
+      <wsdl:output message="tns:updRateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCurrencyRate">
+      <wsdl:input message="tns:InsertCurrencyRateSoapIn" />
+      <wsdl:output message="tns:InsertCurrencyRateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCurrency">
+      <wsdl:input message="tns:DeleteCurrencySoapIn" />
+      <wsdl:output message="tns:DeleteCurrencySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllcoupon">
+      <wsdl:input message="tns:GetAllcouponSoapIn" />
+      <wsdl:output message="tns:GetAllcouponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewCoupon">
+      <wsdl:input message="tns:InsertNewCouponSoapIn" />
+      <wsdl:output message="tns:InsertNewCouponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="perbycoup">
+      <wsdl:input message="tns:perbycoupSoapIn" />
+      <wsdl:output message="tns:perbycoupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCoupon">
+      <wsdl:input message="tns:DeleteCouponSoapIn" />
+      <wsdl:output message="tns:DeleteCouponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updCoupon">
+      <wsdl:input message="tns:updCouponSoapIn" />
+      <wsdl:output message="tns:updCouponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkCoupon">
+      <wsdl:input message="tns:chkCouponSoapIn" />
+      <wsdl:output message="tns:chkCouponSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="chkFclub">
+      <wsdl:input message="tns:chkFclubSoapIn" />
+      <wsdl:output message="tns:chkFclubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewClub">
+      <wsdl:input message="tns:InsertNewClubSoapIn" />
+      <wsdl:output message="tns:InsertNewClubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMember">
+      <wsdl:input message="tns:DeleteMemberSoapIn" />
+      <wsdl:output message="tns:DeleteMemberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="chkCard">
+      <soap:operation soapAction="http://tempuri.org/chkCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkInfo">
+      <soap:operation soapAction="http://tempuri.org/chkInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCurrencyRates">
+      <soap:operation soapAction="http://tempuri.org/GetAllCurrencyRates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotal">
+      <soap:operation soapAction="http://tempuri.org/getTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updRate">
+      <soap:operation soapAction="http://tempuri.org/updRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCurrencyRate">
+      <soap:operation soapAction="http://tempuri.org/InsertCurrencyRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCurrency">
+      <soap:operation soapAction="http://tempuri.org/DeleteCurrency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllcoupon">
+      <soap:operation soapAction="http://tempuri.org/GetAllcoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewCoupon">
+      <soap:operation soapAction="http://tempuri.org/InsertNewCoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="perbycoup">
+      <soap:operation soapAction="http://tempuri.org/perbycoup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCoupon">
+      <soap:operation soapAction="http://tempuri.org/DeleteCoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updCoupon">
+      <soap:operation soapAction="http://tempuri.org/updCoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkCoupon">
+      <soap:operation soapAction="http://tempuri.org/chkCoupon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkFclub">
+      <soap:operation soapAction="http://tempuri.org/chkFclub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewClub">
+      <soap:operation soapAction="http://tempuri.org/InsertNewClub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMember">
+      <soap:operation soapAction="http://tempuri.org/DeleteMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="chkCard">
+      <soap12:operation soapAction="http://tempuri.org/chkCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkInfo">
+      <soap12:operation soapAction="http://tempuri.org/chkInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCurrencyRates">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCurrencyRates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotal">
+      <soap12:operation soapAction="http://tempuri.org/getTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updRate">
+      <soap12:operation soapAction="http://tempuri.org/updRate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCurrencyRate">
+      <soap12:operation soapAction="http://tempuri.org/InsertCurrencyRate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCurrency">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCurrency" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllcoupon">
+      <soap12:operation soapAction="http://tempuri.org/GetAllcoupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewCoupon">
+      <soap12:operation soapAction="http://tempuri.org/InsertNewCoupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="perbycoup">
+      <soap12:operation soapAction="http://tempuri.org/perbycoup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCoupon">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCoupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updCoupon">
+      <soap12:operation soapAction="http://tempuri.org/updCoupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkCoupon">
+      <soap12:operation soapAction="http://tempuri.org/chkCoupon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chkFclub">
+      <soap12:operation soapAction="http://tempuri.org/chkFclub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNewClub">
+      <soap12:operation soapAction="http://tempuri.org/InsertNewClub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMember">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost:55962/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost:55962/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

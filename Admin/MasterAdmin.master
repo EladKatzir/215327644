@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterAdmin.master.cs" Inherits="MasterAdmin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <title></title>
+    <link href="../css/adminstyle.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 900px;
+            height: 410px;
+            z-index: 1;
+            left: 10px;
+            top: 31px;
+            position: absolute;
+        }
+        .transparentButton {
+            background-color: transparent;
+            border: none;
+        }
+        .auto-style4 {
+            height: 26px;
+            z-index: 1;
+            left: 959px;
+            top: 62px;
+        }
+        .auto-style6 {
+            height: 35px;
+        }
+        .auto-style7 {
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server" >
+    <div>
+         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+         </asp:ContentPlaceHolder>
+        <table align="left" class="auto-style1">
+            <tr>
+                <td class="auto-style7">
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" EnableViewState="False">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+           
+            <tr>
+                <td class="auto-style6">
+                 </td>
+            </tr>
+        </table>
+        <a href="ureg.aspx" style="font-size:x-large; color:white; text-decoration:none; text-align:center; top: 700px; left: 5px; width:240px;height:39px;"
+        <button runat="server" type="submit" class="glow-on-hover" onclick="btnsignup_Click"/> users
+        </button>
+            </a>
+        <a href="logonoff.aspx" style="font-size:x-large; color:white; text-decoration:none; text-align:center; top: 700px; left: 360px;width:240px;height:39px;"
+        <button runat="server" type="submit" class="glow-on-hover"/> log in/off
+        </button>
+            </a>
+        <a href="contant.aspx" style="font-size:x-large; color:white; text-decoration:none; text-align:center; top: 700px; left: 705px;width:240px;height:39px;"
+        <button runat="server" type="submit" class="glow-on-hover" /> prices
+        </button>
+            </a>
+               <p>
+                &nbsp;</p>
+
+    </form>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

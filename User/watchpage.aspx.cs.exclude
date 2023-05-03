@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.OleDb;
+
+public partial class User_Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void sddl_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //episodes epi = new episodes();
+        //epi.gsseasonnum=1;
+        //epi.gsshowfrom=
+        //DataSet dsbook = epi.episodelist(epi);
+        //string tmp;
+        //eddl.Items.Clear();
+        //eddl.Items.Add("select episode");
+
+        //for (int i = 0; i < dsbook.Tables[0].Rows.Count; i++)
+        //{
+        //    tmp = dsbook.Tables[0].Rows[i][0].ToString();
+        //    eddl.Items.Add(tmp);
+        //}
+    }
+}

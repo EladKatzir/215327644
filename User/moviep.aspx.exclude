@@ -1,0 +1,11 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/mastercontent.master" AutoEventWireup="true" CodeFile="moviep.aspx.cs" Inherits="User_moviep" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+    <asp:TextBox ID="link" runat="server" style="z-index: 1; left: 463px; top: 432px; position: absolute">link</asp:TextBox>
+    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="moviename" DataValueField="movieid" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="z-index: 1; left: 536px; top: 279px; position: absolute">
+    </asp:DropDownList>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\215327644elad.mdb" ProviderName="System.Data.OleDb" SelectCommand="SELECT [movieid], [moviename] FROM [tblmovies]"></asp:SqlDataSource>
+    
+      </asp:Content>
+

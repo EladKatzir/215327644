@@ -1,0 +1,122 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.OleDb;
+
+public partial class addcontent : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+
+    protected void ddltype_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddltype.SelectedItem.Text=="shows")
+        {
+            shows a = new shows();
+            DataSet dsT = new DataSet();
+            dsT = a.getgen();
+            string tmp = "";
+            ddlsgenere.Items.Clear(); //cbl since i want to later have a show or movie to have two or more genres
+            ddlsgenere.Items.Add("choose genere");
+            for (int i = 10; i < dsT.Tables[0].Rows.Count; i++)
+            {
+                tmp = dsT.Tables[0].Rows[i][0].ToString();
+                ddlsgenere.Items.Add(tmp);
+            }
+            
+            
+            pnlshow.Visible = true;
+
+        }
+        if (ddltype.SelectedItem.Text == "movies")
+        {
+            movies a = new movies();
+            DataSet dsT = new DataSet();
+            dsT = a.getgen();
+            string tmp = "";
+            ddlmgenere.Items.Clear(); //cbl since i want to later have a show or movie to have two or more genres
+            ddlmgenere.Items.Add("choose genere");
+            for (int i = 11; i < dsT.Tables[0].Rows.Count; i++)
+            {
+                tmp = dsT.Tables[0].Rows[i][0].ToString();
+                ddlmgenere.Items.Add(tmp);
+            }
+            
+
+            
+
+            pnlmovie.Visible = true;
+        }
+        if (ddltype.SelectedItem.Text == "songs")
+        {
+            songs a = new songs();
+            DataSet dsT = new DataSet();
+            dsT = a.getgen();
+            string tmp = "";
+            ddlsgenere0.Items.Clear(); //cbl since i want to later have a show or movie to have two or more genres
+            ddlsgenere0.Items.Add("choose genere");
+            for (int i = 1; i < 10; i++)
+            {
+                tmp = dsT.Tables[0].Rows[i][0].ToString();
+                ddlsgenere0.Items.Add(tmp);
+            }
+            
+            
+            pnlsong.Visible = true;
+
+        }
+    }
+
+    protected void btnaddm_Click(object sender, EventArgs e)
+    {
+        string filePath = HttpContext.Current.Server.MapPath("~/images/" + coverm.FileName);
+        coverm.SaveAs(filePath);
+        string fileUpInto = "~/images/" + coverm.FileName;
+        movies cool = new movies();
+        cool.sgnamem = "sherlok";//txtmname.Text;
+        cool.sgpricen = 5;//int.Parse(txtmprice.Text);
+        cool.sglenm = 120;//int.Parse(txtmlen.Text);
+        cool.sggenm = ddlmgenere.SelectedItem.Text;
+        cool.sgratem = 3;//int.Parse(ddlmrate.SelectedItem.Text);
+        cool.sgcredm =  ddlmcredit.SelectedItem.Text;
+        cool.sgcoverm = "link";//fileUpInto;
+        cool.sglinkm = txtmlink.Text;
+        cool.newmovie(cool);
+    }
+
+    protected void btnadds_Click(object sender, EventArgs e)
+    {
+        string filePath = HttpContext.Current.Server.MapPath("~/images/" + covers.FileName);
+        covers.SaveAs(filePath);
+        string fileUpInto = "~/images/" + covers.FileName;
+        shows cool = new shows();
+        cool.sgnames = txtmname.Text;
+        cool.sgprices = int.Parse(txtmprice.Text);
+        cool.sglens = int.Parse(txtmlen.Text);
+        cool.sggens = ddlmgenere.SelectedItem.Value;
+        cool.sgrates = int.Parse(ddlmrate.SelectedItem.Text);
+        cool.sgcreds = ddlmcredit.SelectedItem.Value;
+        cool.sgimg = fileUpInto;
+    }
+
+    protected void btnadds0_Click(object sender, EventArgs e)
+    {
+        string filePath = HttpContext.Current.Server.MapPath("~/images/" + covers0.FileName);
+        covers0.SaveAs(filePath);
+        string fileUpInto = "~/images/" + covers0.FileName;
+        songs cool = new songs();
+            cool.sgnamey = txtmname.Text;
+            cool.sgpricey = int.Parse(txtsprice0.Text);
+            cool.sgleny = int.Parse(txtslen0.Text);
+            cool.sggeny = ddlsgenere0.SelectedItem.Value;
+            cool.sgratey = int.Parse(ddlsrate0.SelectedItem.Text);
+            cool.sgcredy = ddlscred0.SelectedItem.Value;
+            cool.sgcovery = fileUpInto;
+            cool.sglinky = txtslink.Text;
+    }
+}

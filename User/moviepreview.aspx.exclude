@@ -1,0 +1,17 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="moviepreview.aspx.cs" Inherits="User_moviepreview" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+    <asp:ListBox ID="ListBox1" runat="server" style="z-index: 1; left: 124px; top: 51px; position: absolute"></asp:ListBox>
+    </div>
+    </form>
+</body>
+</html>

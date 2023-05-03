@@ -1,0 +1,29 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/mastercontent.master" AutoEventWireup="true" CodeFile="watchpage.aspx.cs" Inherits="User_Default" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\215327644elad.mdb" ProviderName="System.Data.OleDb" SelectCommand="SELECT [genereId], [generename] FROM [tblgen]"></asp:SqlDataSource>
+    <asp:ListBox ID="ListBox1" runat="server" style="z-index: 1; left: 1252px; top: 37px; position: absolute; height: 21px;"></asp:ListBox>
+    <video src="../images/Game-of-Thrones_S1E1_480p.mp4" controls="controls" style="height: 589px; width: 1183px; z-index: 1; left: 17px; top: 62px; position: absolute" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:DropDownList ID="sddl" runat="server" style="z-index: 1; position: absolute; top: 363px; left: 1260px; width: 72px; height: 16px" OnSelectedIndexChanged="sddl_SelectedIndexChanged" AutoPostBack="True">
+    <asp:ListItem Selected="True" Value="0">choose a season</asp:ListItem>
+    <asp:ListItem Value="1">season 1</asp:ListItem>
+    <asp:ListItem Value="2">season 2</asp:ListItem>
+    <asp:ListItem Value="3">season 3</asp:ListItem>
+    <asp:ListItem Value="4">season 4</asp:ListItem>
+    <asp:ListItem Value="5">season 5</asp:ListItem>
+    <asp:ListItem Value=" 6">season 6</asp:ListItem>
+    <asp:ListItem Value=" 7">season 7</asp:ListItem>
+    <asp:ListItem Value=" 8">season 8</asp:ListItem>
+    <asp:ListItem Value="9">season 9</asp:ListItem>
+</asp:DropDownList>
+<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\215327644elad.mdb" ProviderName="System.Data.OleDb" SelectCommand="SELECT [seasonnumber] FROM [tblepisodes]"></asp:SqlDataSource>
+<p>
+</p>
+<asp:DropDownList ID="eddl" runat="server" style="z-index: 1; position: absolute; top: 397px; left: 1261px" AutoPostBack="True">
+</asp:DropDownList>
+</asp:Content>
+

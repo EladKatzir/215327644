@@ -1,0 +1,138 @@
+﻿body {
+    background-image: url('../images/adminbg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.buttons {
+    border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    color: #fff;
+    line-height: 1.15;
+    font-size: 16px;
+     filter: blur(5px);
+    width: 100;
+    height: 200;
+    animation: glowing 20s linear infinite;
+    z-index: 1;
+    left: 9px;
+    top: 635px;
+    position: absolute;
+}
+    .buttons:hover {
+        transition: all .1s ease;
+        box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+    }
+.glow-on-hover {
+   
+     border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    width: 140px;
+    height: 39px;
+    outline: none;
+    color: #fff;
+    background: #000000	;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    border-radius: 10px;
+    top: 599px;
+    left: 9px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.button {
+  border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    display: flex;
+    height: 50px;
+    padding: 0;
+    background: #000000;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 1;
+    left: 1072px;
+    top: -561px;
+    position: absolute;
+}
+
+.button:hover {
+  background: #6F0173;
+}
+
+.button:active {
+  background: #730876;
+}
+
+.button__text,
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 24px;
+  color: #fff;
+  height: 100%;
+}
+
+.button__icon {
+  font-size: 1.5em;
+  background: rgba(0, 0, 0, 0.08);
+}

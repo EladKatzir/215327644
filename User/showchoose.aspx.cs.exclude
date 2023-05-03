@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.OleDb;
+
+public partial class User_moviepreview : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+       //Session["showname"]=
+    }
+
+    protected void ddlgenre_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        shows btype = new shows();
+        btype.sggens = ddlgenre.SelectedItem.Text;
+        DataSet dsbook = btype.showbygen(btype);
+        string tmp;
+        listshow.Items.Clear();
+        listshow.Items.Add("choose a show");
+
+        for (int i = 0; i < dsbook.Tables[0].Rows.Count; i++)
+        {
+            tmp = dsbook.Tables[0].Rows[i][0].ToString();
+            listshow.Items.Add(tmp);
+        }
+    }
+
+    protected void listshow_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Session["show"] = listshow.SelectedItem.Text;
+    }
+}

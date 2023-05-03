@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Masterorder.master.cs" Inherits="User_Masterorder" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+      <style type="text/css">
+        .auto-style1 {
+            width: 900px;
+            height: 410px;
+            z-index: 1;
+            left: 10px;
+            top: 31px;
+            position: absolute;
+        }
+        .auto-style4 {
+            height: 26px;
+            z-index: 1;
+            left: 959px;
+            top: 62px;
+        }
+        .auto-style6 {
+            height: 35px;
+        }
+        .auto-style7 {
+            height: 10px;
+        }
+    </style>
+     <link href="../css/orderstyle.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+          <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+ 
+        <table align="left" class="auto-style1">
+            <tr>
+                <td class="auto-style7">
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" EnableViewState="False">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+           
+            <tr>
+                <td class="auto-style6">
+                 </td>
+            </tr>
+        </table>
+                      </asp:ContentPlaceHolder>
+    </div>
+                <a href="homepage.aspx" style="font-size:x-large; color:white; text-decoration:none; text-align:center; top: 700px; left: 480px;"
+        <button runat="server" type="submit" class="glow-on-hover" onclick="btnsignup_Click"/>  back home
+        </button>
+            </a>
+        <a href="mycart.aspx" style="font-size:x-large; color:white; text-decoration:none; text-align:center; top: 700px; left: 632px;"
+        <button runat="server" type="submit" class="glow-on-hover" onclick="btnsignup_Click"/> my basket
+        </button>
+            </a>
+         <a href="../Admin/alogin.aspx" style="font-size:x-large; color:white; text-decoration:none; text-align:center; top: 60px; left: 1680px;"
+           <button runat="server" type="button" class="button" onclick="btnsignup_Click"/>
+               <span class="button__text">admin</span>
+               <span class="button__icon">
+                   <ion-icon name="settings-outline"></ion-icon>
+               </span>
+           </button>
+
+            </a>
+         <a href="upage.aspx" style="font-size:x-large; color:white; text-decoration:none; text-align:center; top: 3px; left: 1678px; width: 171px;"
+           <button runat="server" type="button" class="button" onclick="btnsignup_Click"/>
+               <span class="button__text">user</span>
+               <span class="button__icon">
+                   <ion-icon name="person-circle-outline"></ion-icon>
+               </span>
+           </button>
+
+            </a>
+    </form>
+      <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

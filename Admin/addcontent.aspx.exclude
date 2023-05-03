@@ -1,0 +1,86 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="addcontent.aspx.cs" Inherits="addcontent" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server" enctype="multipart/form-data">
+    <div>
+    
+    </div>
+        <asp:DropDownList ID="ddltype" runat="server" DataSourceID="SqlDataSource1" DataTextField="contenttype" DataValueField="contenttypeid" style="z-index: 1; left: 392px; top: 136px; position: absolute" AutoPostBack="True" OnSelectedIndexChanged="ddltype_SelectedIndexChanged">
+        </asp:DropDownList>
+        <asp:Panel ID="pnlshow" runat="server" style="z-index: 1; left: 552px; top: 294px; position: absolute; height: 399px; width: 353px" BackColor="LightGray" BorderColor="Black" BorderStyle="Dashed" Visible="False">
+            <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 0px; top: 0px; position: absolute" Text="name"></asp:Label>
+            <asp:TextBox ID="txtsname" runat="server" style="z-index: 1; left: 105px; top: 1px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtslen" runat="server" style="z-index: 1; left: 106px; top: 51px; position: absolute"></asp:TextBox>
+            <asp:Label ID="Label2" runat="server" style="z-index: 1; left: -1px; top: 55px; position: absolute" Text="len"></asp:Label>
+            <asp:TextBox ID="txtsprice" runat="server" style="z-index: 1; left: 101px; top: 112px; position: absolute"></asp:TextBox>
+            <asp:Label ID="Label3" runat="server" style="z-index: 1; left: 3px; top: 113px; position: absolute" Text="price"></asp:Label>
+            <asp:DropDownList ID="ddlsgenere" runat="server" style="z-index: 1; left: 124px; top: 166px; position: absolute" AutoPostBack="True">
+            </asp:DropDownList>
+            <asp:Label ID="Label5" runat="server" style="z-index: 1; left: 1px; top: 227px; position: absolute" Text="rate"></asp:Label>
+            <asp:DropDownList ID="ddlsrate" runat="server" style="z-index: 1; left: 121px; top: 225px; position: absolute" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="rate" DataValueField="ratingId">
+            </asp:DropDownList>
+            <asp:Label ID="Label4" runat="server" style="z-index: 1; left: -5px; top: 169px; position: absolute" Text="genere"></asp:Label>
+            <asp:FileUpload ID="covers" runat="server" style="z-index: 1; left: 3px; top: 302px; position: absolute" />
+            <asp:Label ID="Label19" runat="server" style="z-index: 1; left: 3px; top: 262px; position: absolute" Text="credits"></asp:Label>
+            <asp:DropDownList ID="ddlscred" runat="server" style="z-index: 1; left: 132px; top: 261px; position: absolute" DataSourceID="SqlDataSource3" DataTextField="writername" DataValueField="creditid">
+            </asp:DropDownList>
+            <asp:Button ID="btnadds" runat="server" style="z-index: 1; left: 252px; top: 155px; position: absolute" Text="add" OnClick="btnadds_Click" />
+
+        </asp:Panel>
+        <asp:Label ID="Label6" runat="server" style="z-index: 1; left: 192px; top: 557px; position: absolute" Text="cover"></asp:Label>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\215327644elad.mdb" ProviderName="System.Data.OleDb" SelectCommand="SELECT [contenttypeid], [contenttype] FROM [tblcontenttype]"></asp:SqlDataSource>
+        <asp:Panel ID="pnlmovie" runat="server" style="z-index: 1; left: 75px; top: 297px; position: absolute; height: 399px; width: 353px" BackColor="WhiteSmoke" BorderColor="Black" BorderStyle="Dotted" Visible="False">
+            <asp:Label ID="Label7" runat="server" style="z-index: 1; left: 0px; top: 0px; position: absolute" Text="name"></asp:Label>
+            <asp:TextBox ID="txtmname" runat="server" style="z-index: 1; left: 105px; top: 1px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtmlen" runat="server" style="z-index: 1; left: 106px; top: 51px; position: absolute"></asp:TextBox>
+            <asp:Label ID="Label8" runat="server" style="z-index: 1; left: -1px; top: 55px; position: absolute" Text="len"></asp:Label>
+            <asp:TextBox ID="txtmprice" runat="server" style="z-index: 1; left: 101px; top: 112px; position: absolute"></asp:TextBox>
+            <asp:Label ID="Label9" runat="server" style="z-index: 1; left: 3px; top: 113px; position: absolute" Text="price"></asp:Label>
+            <asp:DropDownList ID="ddlmgenere" runat="server" style="z-index: 1; left: 124px; top: 166px; position: absolute" AutoPostBack="True">
+            </asp:DropDownList>
+            <asp:Label ID="Label10" runat="server" style="z-index: 1; left: 1px; top: 227px; position: absolute" Text="rate"></asp:Label>
+            <asp:DropDownList ID="ddlmrate" runat="server" style="z-index: 1; left: 121px; top: 225px; position: absolute" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="rate" DataValueField="ratingId">
+            </asp:DropDownList>
+            <asp:Label ID="Label17" runat="server" Text="link" style="z-index: 1; left: 7px; top: 343px; position: absolute"></asp:Label>
+            <asp:TextBox ID="txtmlink" runat="server" style="z-index: 1; left: 139px; top: 344px; position: absolute"></asp:TextBox>
+            <asp:Label ID="Label18" runat="server" style="z-index: 1; left: 3px; top: 262px; position: absolute" Text="credits"></asp:Label>
+            <asp:DropDownList ID="ddlmcredit" runat="server" style="z-index: 1; left: 132px; top: 261px; position: absolute" DataSourceID="SqlDataSource3" DataTextField="writername" DataValueField="creditid">
+            </asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\215327644elad.mdb" ProviderName="System.Data.OleDb" SelectCommand="SELECT [creditid], [writername], [producername], [actorname] FROM [tblcredit]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\215327644elad.mdb" ProviderName="System.Data.OleDb" SelectCommand="SELECT [rate], [ratingId] FROM [tblrate]"></asp:SqlDataSource>
+            <asp:Button ID="btnaddm" runat="server" style="z-index: 1; left: 252px; top: 155px; position: absolute" Text="add" OnClick="btnaddm_Click" />
+            <asp:Label ID="Label11" runat="server" style="z-index: 1; left: -5px; top: 169px; position: absolute" Text="genere"></asp:Label>
+            <asp:FileUpload ID="coverm" runat="server" style="z-index: 1; left: 3px; top: 302px; position: absolute" />
+
+        </asp:Panel>
+        
+        <asp:Panel ID="pnlsong" runat="server" style="z-index: 1; left: 964px; top: 290px; position: absolute; height: 399px; width: 353px" BackColor="Gray" BorderColor="Black" Visible="False">
+            <asp:Label ID="Label12" runat="server" style="z-index: 1; left: 0px; top: 0px; position: absolute" Text="name"></asp:Label>
+            <asp:TextBox ID="txtsname0" runat="server" style="z-index: 1; left: 105px; top: 1px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtslen0" runat="server" style="z-index: 1; left: 106px; top: 51px; position: absolute"></asp:TextBox>
+            <asp:Label ID="Label13" runat="server" style="z-index: 1; left: -1px; top: 55px; position: absolute" Text="len"></asp:Label>
+            <asp:TextBox ID="txtsprice0" runat="server" style="z-index: 1; left: 101px; top: 112px; position: absolute"></asp:TextBox>
+            <asp:Label ID="Label14" runat="server" style="z-index: 1; left: 3px; top: 113px; position: absolute" Text="price"></asp:Label>
+            <asp:DropDownList ID="ddlsgenere0" runat="server" style="z-index: 1; left: 124px; top: 166px; position: absolute" AutoPostBack="True">
+            </asp:DropDownList>
+            <asp:Label ID="Label15" runat="server" style="z-index: 1; left: 1px; top: 227px; position: absolute" Text="rate"></asp:Label>
+            <asp:DropDownList ID="ddlsrate0" runat="server" style="z-index: 1; left: 121px; top: 225px; position: absolute" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="rate" DataValueField="ratingId">
+            </asp:DropDownList>
+            <asp:Label ID="Label16" runat="server" style="z-index: 1; left: -5px; top: 169px; position: absolute" Text="genere"></asp:Label>
+            <asp:FileUpload ID="covers0" runat="server" style="z-index: 1; left: 3px; top: 302px; position: absolute" />
+            <asp:Label ID="Label20" runat="server" Text="link" style="z-index: 1; left: 7px; top: 343px; position: absolute"></asp:Label>
+            <asp:TextBox ID="txtslink" runat="server" style="z-index: 1; left: 139px; top: 344px; position: absolute"></asp:TextBox>
+            <asp:Label ID="Label21" runat="server" style="z-index: 1; left: 3px; top: 262px; position: absolute" Text="credits"></asp:Label>
+            <asp:DropDownList ID="ddlscred0" runat="server" style="z-index: 1; left: 132px; top: 261px; position: absolute" DataSourceID="SqlDataSource3" DataTextField="writername" DataValueField="creditid">
+            </asp:DropDownList>
+            <asp:Button ID="btnadds0" runat="server" style="z-index: 1; left: 252px; top: 155px; position: absolute" Text="add" OnClick="btnadds0_Click" />
+        </asp:Panel>
+    </form>
+</body>
+</html>
